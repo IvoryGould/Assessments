@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473a6780d83cccb40ba5516d294422e0, type: 3}
+  m_Name: ModifierManager
+  m_EditorClassIdentifier: 
+  modifierList:
+  - modifierName: MaxHealth
+    modifierID: 1
+    baseValue: 100
+  - modifierName: MaxStamina
+    modifierID: 2
+    baseValue: 100
+  - modifierName: MaxOneHandedDamage
+    modifierID: 3
+    baseValue: 50
