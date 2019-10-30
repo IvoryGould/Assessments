@@ -5,15 +5,18 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     Transform t;
-    GameObject camera;
+    GameObject _camera;
+    Vector3 cameraPos;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         t = this.transform;
-        camera = GameObject.Find("Main Camera");
+        _camera = GameObject.Find("Main Camera");
+        Vector3 cameraPos = _camera.transform.position;
 
-	}
+
+    }
 
     [SerializeField]
     public float moveSpeed;
@@ -43,8 +46,16 @@ public class CameraMovement : MonoBehaviour {
 
         float ms = Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
 
-        camera.transform.Translate(0, 0, ms * Time.deltaTime);
+        _camera.transform.Translate(0, 0, ms * Time.deltaTime);
 
-	}
+        if (_camera.transform.localPosition.z > 0)
+        {
+
+            cameraPos = transform.position;
+            _camera.transform.position = cameraPos;
+
+        }
+
+    }
 
 }

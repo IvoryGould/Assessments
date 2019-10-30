@@ -1,15 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
     public GameObject characterSheet;
+    //[HideInInspector]
+    public GameObject debugPanel;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
 
         characterSheet = GameObject.Find("CharacterSheet");
+        debugPanel = GameObject.Find("DEBUGOUTPUT");
+
+    }
+
+    // Use this for initialization
+    void Start () {
+
+
 
 	}
 	

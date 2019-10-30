@@ -53,11 +53,11 @@ public class Character : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        //if (Input.GetKeyDown(KeyCode.Space)) {
 
-            AddSkillLevel(1, 2);
+        //    AddSkillLevel(1, 2);
 
-        }
+        //}
 
         //hasALevelChanged = statManager.incrementStatLevelByID(4);
         //hasASkillLevelChanged = skillManager.AwardExpToSkill(7, 1);
