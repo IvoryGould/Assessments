@@ -62,20 +62,40 @@ public class Player : MonoBehaviour {
 
 	}
 
+    Vector3 MoveToTarget(GameObject target, Vector3 attackRange) {
+
+        Vector3 targetDestination = target.transform.position - attackRange;
+
+        return agent.destination = targetDestination;
+
+    }
+
     IEnumerator Attack(GameObject target, int weaponType) {
+
+        float attackRange;
 
         Debug.Log("Trageted Enemy");
 
         if (weaponType == 0) {
 
-            while (targeting == true) {
+            attackRange = 1f;
 
-                //Debug.Log("Damage" + "" + Random.Range(1, (int)character.modifierManager.getmodifierByID(3).baseValue + 1));
-                gameManager.debugPanel.transform.GetChild(2).GetComponent<Text>().text = Random.Range(1, (int)character.modifierManager.getmodifierByID(3).baseValue + 1).ToString();
-                yield return new WaitForSeconds(1.0f);
+            MoveToTarget(target, new Vector3(0,0,attackRange));
 
+            while (targeting )
+            {
+
+                if (Vector3.Distance(target.transform.position, this.transform.position) == attackRange)
+                {
+
+                    //Debug.Log("Damage" + "" + Random.Range(1, (int)character.modifierManager.getmodifierByID(3).baseValue + 1));
+                    gameManager.debugPanel.transform.GetChild(2).GetComponent<Text>().text = Random.Range(1, (int)character.modifierManager.getmodifierByID(3).baseValue + 1).ToString();
+                    yield return new WaitForSeconds(1.0f);
+
+                }
+                
             }
-            
+
         }
         else if (weaponType == 1) {
 
